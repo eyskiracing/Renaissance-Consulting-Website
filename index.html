@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" class="play">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renaissance Consulting</title>
+<meta name="description" content="Renaissance Consulting.">
+<meta property="og:title" content="Renaissance Consulting">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#101820">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #101820;
+  --ivory: #E9E4D6;
+  --gold: #C9A24B;
+  --muted: #AEB2B3;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: radial-gradient(ellipse at 50% 36%, #1C2834 0%, var(--bg) 62%);
+  color: var(--ivory);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+main {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 5vh, 52px);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+/* Mark */
+.mark {
+  width: min(56vw, 300px);
+  height: auto;
+  display: block;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.mark .s { fill: none; stroke: var(--gold); stroke-width: 3; }
+.mark .thin { stroke-width: 1.5; }
+.mark g { transform-origin: 120px 120px; }
+.mark text {
+  fill: var(--ivory);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 86px;
+}
+
+/* Wordmark */
+.word {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(30px, 7.4vw, 64px);
+  letter-spacing: 0.22em;
+  padding-left: 0.22em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.word span { display: inline-block; }
+.sub { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: clamp(16px, 2.6vh, 26px); }
+.sub i { display: block; width: clamp(32px, 8vw, 72px); height: 1px; background: var(--gold); }
+.sub b {
+  font-weight: 500;
+  font-size: clamp(11px, 2.4vw, 16px);
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  color: var(--gold);
+}
+.mail {
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 2px;
+  border-bottom: 1px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+.mail:hover { color: var(--ivory); border-color: var(--gold); }
+.mail:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+
+/* Entrance sequence (runs when html has .play) */
+@media (prefers-reduced-motion: no-preference) {
+  .play .mark { animation: glow 1.8s ease 2.9s both; }
+  .play .ring { stroke-dasharray: 1; animation: draw 1.5s cubic-bezier(.6, 0, .2, 1) .2s both; }
+  .play .box  { animation: box 1.5s var(--ease) .8s both; }
+  .play .ticks { animation: ticks 1.5s var(--ease) 1.2s both; }
+  .play .core { animation: core 1s var(--ease) 1.7s both; }
+  .play .r    { animation: spinin 1.4s var(--ease) 1.9s both; }
+  .play .word span { animation: letter 1s var(--ease) calc(3.1s + var(--i) * .08s) both; }
+  .play .sub i { animation: rule 1.1s var(--ease) 4.3s both; }
+  .play .sub b { animation: fade 1.2s ease 4.5s both; }
+  .play .mail  { animation: fade 1.6s ease 5.4s both; }
+}
+@keyframes draw   { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes box    { from { opacity: 0; transform: rotate(-200deg) scale(.35); } to { opacity: 1; transform: none; } }
+@keyframes ticks  { from { opacity: 0; transform: rotate(300deg) scale(.6); } to { opacity: 1; transform: none; } }
+@keyframes core   { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: none; } }
+@keyframes spinin { from { opacity: 0; transform: rotate(-540deg) scale(.15); } to { opacity: 1; transform: none; } }
+@keyframes letter { from { opacity: 0; transform: translateY(18px); filter: blur(10px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes rule   { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes fade   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes glow   { 0%, 100% { filter: drop-shadow(0 0 0 rgba(201, 162, 75, 0)); } 45% { filter: drop-shadow(0 0 26px rgba(201, 162, 75, .5)); } }
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" id="mark" viewBox="0 0 240 240" role="img" aria-label="Renaissance Consulting mark: a circle and square surrounding the letter R">
+    <circle class="s ring" cx="120" cy="120" r="112" pathLength="1"></circle>
+    <g class="box"><rect class="s" x="41" y="41" width="158" height="158"></rect></g>
+    <g class="ticks">
+      <line class="s" x1="120" y1="8" x2="120" y2="41"></line>
+      <line class="s" x1="120" y1="199" x2="120" y2="232"></line>
+      <line class="s" x1="8" y1="120" x2="41" y2="120"></line>
+      <line class="s" x1="199" y1="120" x2="232" y2="120"></line>
+    </g>
+    <g class="core"><circle class="s thin" cx="120" cy="120" r="56"></circle></g>
+    <g class="r"><text x="120" y="146" text-anchor="middle">R</text></g>
+  </svg>
+
+  <div>
+    <div class="word" role="heading" aria-level="1" aria-label="Renaissance">
+      <span aria-hidden="true" style="--i:0">R</span><span aria-hidden="true" style="--i:1">E</span><span aria-hidden="true" style="--i:2">N</span><span aria-hidden="true" style="--i:3">A</span><span aria-hidden="true" style="--i:4">I</span><span aria-hidden="true" style="--i:5">S</span><span aria-hidden="true" style="--i:6">S</span><span aria-hidden="true" style="--i:7">A</span><span aria-hidden="true" style="--i:8">N</span><span aria-hidden="true" style="--i:9">C</span><span aria-hidden="true" style="--i:10">E</span>
+    </div>
+    <div class="sub"><i></i><b>CONSULTING</b><i></i></div>
+  </div>
+
+  <a class="mail" href="mailto:contact@renaissance-consulting.llc">contact@renaissance-consulting.llc</a>
+</main>
+<script>
+(function () {
+  var root = document.documentElement;
+  document.getElementById('mark').addEventListener('click', function () {
+    root.classList.remove('play');
+    void root.offsetWidth;
+    root.classList.add('play');
+  });
+})();
+</script>
+</body>
+</html>
